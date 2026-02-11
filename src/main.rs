@@ -21,6 +21,11 @@ fn main() {
             Err(_) => continue,
         };
 
+        if !(1..=100).contains(&guess) {
+            println!("The number range is in range [1, 100]");
+            continue;
+        }
+
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
